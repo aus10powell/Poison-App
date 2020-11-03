@@ -8,8 +8,8 @@ st.title("Presence of Poison Oak in normalized_image_array")
 st.header("Poison Oak Classification Example")
 st.text("Upload an image for classification as poison oak or no poison oak")
 
-
-uploaded_file = st.file_uploader("Select an image ...", type="jpg")
+print('Starting Streamlit app')
+uploaded_file = st.file_uploader("Select an image ...", type=["jpg","png","jpeg"])
 # uploaded_file = io.TextIOWrapper(uploaded_file)
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
