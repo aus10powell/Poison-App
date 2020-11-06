@@ -18,11 +18,11 @@ if uploaded_file is not None:
     st.write("Classifying...")
     label = teachable_machine_classification(image,'./best_model.h5')
     if label <= 0.2:
-        st.write("Very unlikely that this is poison oak or ivy.")
+        st.write("Very unlikely that this is poison oak.")
     elif (label > 0.2) & (label <= 0.4):
         st.write("Unsure from this picture. You may need to retake a closer/clearer picture.")
     elif (label > 0.4) & (label <= 0.7):
-        st.write("Decent chance that this is poison oak or ivy.")
+        st.write("Decent chance that this is poison oak.")
     else:
         st.write("{:.1f}% chance that this might be poison oak".format(label * 100))
 else:
