@@ -2,3 +2,6 @@
 
 ## Run
 *streamlit run app.py*
+
+## Tests
+pytest
