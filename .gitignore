@@ -1,0 +1,9 @@
+# Personal
+setup.sh
+
+# Data
+.sqlite3
+
+# Directories
+db/*
+lob/*
