@@ -7,3 +7,7 @@ setup.sh
 # Directories
 db/*
 lob/*
+venv/*
+
+# Python
+__pycache__/*
