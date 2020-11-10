@@ -1,12 +1,16 @@
 import streamlit as st
 from PIL import Image, ImageOps
 import io
-from img_classification import teachable_machine_classification
+from img_classification import teachable_machine_classification, load_model
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
-st.title("Presence of Poison Oak in normalized_image_array")
+st.title("Detecting presence of Poison Oak")
 st.header("Poison Oak Classification Example")
 st.text("Upload an image for classification as poison oak or no poison oak")
+
+
+# Load trained model
+model = load_model('./best_model.h5')
 
 print('Starting Streamlit app')
 uploaded_file = st.file_uploader("Select an image ...", type=["jpg","png","jpeg"])
@@ -16,7 +20,7 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded image', use_column_width=True)
     st.write("")
     st.write("Classifying...")
-    label = teachable_machine_classification(image,'./best_model.h5')
+    label = teachable_machine_classification(img=image, model=model)
     if label <= 0.2:
         st.write("Very unlikely that this is poison oak.")
     elif (label > 0.2) & (label <= 0.6):
