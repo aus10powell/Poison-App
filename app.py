@@ -14,7 +14,7 @@ model = load_model('./best_model.h5')
 
 print('Starting Streamlit app')
 uploaded_file = st.file_uploader("Select an image ...", type=["jpg","png","jpeg"])
-# uploaded_file = io.TextIOWrapper(uploaded_file)
+
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded image', use_column_width=True)

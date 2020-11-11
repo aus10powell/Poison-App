@@ -14,8 +14,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 __pycache__/*
-<<<<<<< HEAD
-=======
 .Python
 build/
 develop-eggs/
@@ -34,7 +32,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
->>>>>>> master
+
 
 # ML
 best_model.h5
