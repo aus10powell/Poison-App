@@ -29,7 +29,3 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
-
-# ML
-best_model.h5

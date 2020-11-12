@@ -4,7 +4,6 @@ import numpy as np
 import io
 import logging
 import keras_metrics
-import cv2
 
 
 
