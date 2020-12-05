@@ -9,6 +9,7 @@ st.header("Poison Oak Classification Example")
 st.text("Upload an image for classification as poison oak or no poison oak")
 
 
+
 # Load trained model
 model = load_model('./best_model.h5')
 
@@ -20,14 +21,25 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded image', use_column_width=True)
     st.write("")
     st.write("Classifying...")
-    label = teachable_machine_classification(img=image, model=model)
-    if label <= 0.2:
-        st.write("Very unlikely that this is poison oak.")
-    elif (label > 0.2) & (label <= 0.6):
-        st.write("Unsure from this picture. You may need to retake a closer/clearer picture.")
-    elif (label > 0.6) & (label <= 0.7):
-        st.write("Decent chance that this is poison oak.")
-    else:
-        st.write("{:.1f}% chance that this might be poison oak".format(label * 100))
+    try:
+        label = teachable_machine_classification(img=image, model=model)
+        if label <= 0.2:
+            st.write("Very unlikely that this is poison oak.")
+        elif (label > 0.2) & (label <= 0.6):
+            st.write("Unsure from this picture. You may need to retake a closer/clearer picture.")
+        elif (label > 0.6) & (label <= 0.7):
+            st.write("Decent chance that this is poison oak.")
+        else:
+            st.write("{:.1f}% chance that this might be poison oak".format(label * 100))
+    except:
+        st.write("Classification failed. Picture may not be in correct format. Try converting to JPG and uploading again!")
 else:
     st.write('No file uploaded')
+
+
+'''
+### Me
+
+* **LinkedIn:** https://www.linkedin.com/in/aus10powell/
+* **Website:** https://aus10powell.github.io
+'''
